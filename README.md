@@ -311,9 +311,14 @@ Users can select individual IPL seasons to analyze:
 ## Dashboard Overview
 
 <p align="center">
-  <img src="images/ipl_dashboard.png" alt="IPL Analysis Dashboard" width="100%">
+  <img src="IPL Dashboard- I.png" alt="IPL Analysis Dashboard - Page 1" width="100%">
 </p>
 
+<p align="center">
+  <img src="IPL Dashboard- II.png" alt="IPL Analysis Dashboard - Page 2" width="100%">
+</p>
+
+---
 ---
 
 ---
@@ -483,19 +488,7 @@ Potential improvements include:
 
 ---
 
-# 📸 Dashboard Screenshots
 
-You can add additional screenshots of individual dashboard pages here.
-
-```markdown
-![IPL Dashboard](images/ipl_dashboard.png)
-
-![Team Analysis](images/team_analysis.png)
-
-![Player Analysis](images/player_analysis.png)
-
-![Toss Analysis](images/toss_analysis.png)
-```
 
 ---
 
