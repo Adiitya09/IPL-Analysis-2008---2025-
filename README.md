@@ -1,506 +1,418 @@
-# 🏏 IPL Analysis Dashboard (2008–2025) | Power BI
+# 🏏 IPL Analysis — 2008 to 2025
 
-An interactive **Power BI dashboard** that analyzes Indian Premier League (IPL) data from **2008 to 2025**. The dashboard provides insights into team performance, player statistics, match results, toss decisions, batting and bowling performances, and season-wise trends using interactive visualizations and DAX-based analytics.
-
----
-
-# 📖 Table of Contents
-
-- [Project Overview](#-project-overview)
-- [Purpose](#-purpose)
-- [Tech Stack](#-tech-stack)
-- [Data Source](#-data-source)
-- [Features & Highlights](#-features--highlights)
-- [Dashboard Preview](#-dashboard-preview)
-- [Key Insights](#-key-insights)
-- [Project Structure](#-project-structure)
-- [How to Use](#-how-to-use)
-- [Skills Demonstrated](#-skills-demonstrated)
-- [Business Value](#-business-value)
-- [Future Improvements](#-future-improvements)
-- [Author](#-author)
+> An end-to-end data analytics project exploring **18 seasons of Indian Premier League (IPL)** data using Python, Power BI, data visualization, and statistical analysis.
 
 ---
 
-# 📌 Project Overview
+## 📊 Project Overview
 
-The **IPL Analysis Dashboard** is an interactive Business Intelligence project developed using **Microsoft Power BI** to analyze IPL match and ball-by-ball data from **2008 to 2025**.
+This project analyzes IPL data from **2008 to 2025** to uncover meaningful insights about teams, players, matches, batting, bowling, and overall tournament trends.
 
-The dashboard transforms extensive IPL data into meaningful visual insights covering team performance, player statistics, match outcomes, toss decisions, batting performance, bowling performance, and season-wise trends.
+The project combines **data analysis and interactive visualization** to transform raw IPL data into meaningful insights and an easy-to-understand analytical dashboard.
 
-Interactive slicers, KPIs, charts, and DAX measures allow users to explore IPL statistics across different seasons, teams, players, and match conditions.
+The analysis covers:
 
----
-
-# 🎯 Purpose
-
-The primary objective of this project is to provide a comprehensive analytical view of the Indian Premier League and make complex cricket statistics easier to understand.
-
-The dashboard helps users:
-
-- Analyze IPL performance across seasons.
-- Compare team performance over the years.
-- Identify top-performing batsmen and bowlers.
-- Analyze toss decisions and their impact on match results.
-- Study batting and bowling trends.
-- Analyze match outcomes and winning margins.
-- Track season-wise team performance.
-- Explore player-level statistics.
-- Identify important trends and patterns in IPL matches.
+* 🏆 Team performance
+* 🏏 Player performance
+* 📈 Batting statistics
+* 🎯 Bowling statistics
+* 🪙 Toss analysis
+* 🏟️ Venue analysis
+* 📅 Season-wise trends
+* 🥇 Orange Cap & Purple Cap analysis
+* 📊 Match-level statistics
 
 ---
 
-# 🛠️ Tech Stack
+## 🎯 Project Objectives
 
-| Technology | Purpose |
-|------------|---------|
-| **Power BI Desktop** | Dashboard Development |
-| **Power Query** | Data Cleaning & Transformation |
-| **DAX** | Measures, KPIs & Calculations |
-| **Microsoft Excel / CSV** | Data Storage & Processing |
-| **Data Modeling** | Relationship Management |
-| **Data Visualization** | Interactive Reports |
+The main objectives of this project are:
 
----
-
-# 📂 Data Source
-
-The **IPL Analysis Dashboard (2008–2025)** is built using multiple datasets containing match-level, ball-by-ball, player, team, and IPL century information.
-
-### 📊 1. Ball-by-Ball Data
-
-The ball-by-ball dataset contains detailed information about every delivery bowled during IPL matches.
-
-Key fields include:
-
-- `match_id`
-- `season_id`
-- `inning`
-- `over_number`
-- `batter`
-- `non_striker`
-- `bowler`
-- `batter_runs`
-- `extras`
-- `total_runs`
-- `bye_runs`
-- `leg_bye_runs`
-- `penalty_runs`
-- `no_ball_runs`
-- `is_wicket`
-- `is_wide_ball`
-- `is_no_ball`
-- `is_leg_bye`
-- `is_bye`
-- `wicket_kind`
-- `player_out`
-- `team_batting`
-- `team_bowling`
-- `batsman_type`
-- `bowler_type`
-
-The dataset is also used to calculate metrics such as:
-
-- Total Runs
-- Total 4s
-- Total 6s
-- Total Century
-- Total Half Century
-- Total Matches
-- Average Runs per Innings
-- Average Runs per Match
+1. Analyze IPL performance across seasons from 2008–2025.
+2. Identify top-performing teams and players.
+3. Analyze batting and bowling performance.
+4. Study the relationship between toss decisions and match outcomes.
+5. Identify season-wise performance trends.
+6. Build interactive dashboards for data exploration.
+7. Generate meaningful insights from historical IPL data.
 
 ---
 
-### 🏏 2. IPL Centuries Data
+## 🛠️ Tech Stack
 
-The `ipl_centuries` dataset contains information about individual century performances in IPL matches.
+### Programming & Data Analysis
 
-Key fields include:
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
 
-- `Balls`
-- `City`
-- `Date`
-- `Innings`
-- `No`
-- `Opposition`
-- `Player`
-- `Result`
-- `Score`
-- `Season`
-- `Strike Rate`
-- `Team`
-- `Venue`
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge\&logo=pandas\&logoColor=white)
 
-This dataset is used for analyzing batting performances and century statistics.
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge\&logo=numpy\&logoColor=white)
 
----
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge\&logo=jupyter\&logoColor=white)
 
-### 🏆 3. IPL Matches Data
+### Visualization & Business Intelligence
 
-The `IPL_Matches` dataset contains match-level information covering IPL seasons from **2008 to 2025**.
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge\&logo=powerbi\&logoColor=black)
 
-Key fields include:
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge)
 
-- `match_id`
-- `match_date`
-- `match_number`
-- `match_type`
-- `season`
-- `IPL Season`
-- `team1`
-- `team2`
-- `match_winner`
-- `toss_winner`
-- `toss_decision`
-- `Toss Match Result`
-- `result`
-- `city`
-- `venue`
-- `event_name`
-- `format`
-- `stage`
-- `team_type`
-- `balls_per_over`
-- `overs`
-- `player_of_match`
-- `Fours`
-- `Six`
-- `Six_count`
-- `Fours_count`
-- `OC Team`
-- `PC Team`
-- `PC wicket`
-- `OC Run`
-- `PC Image`
-- `OC Image`
-- `Winner Logo`
-- `Season Winner`
-- `Season RunnerUp`
-- `Purple cap`
-- `RunnerUp logo`
-- `win_by_runs`
-- `win_by_wickets`
+![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge)
 
-This dataset is used for analyzing:
+### Data Transformation
 
-- Match results
-- Toss analysis
-- Team performance
-- Season winners
-- Season runners-up
-- Winning margins
-- Player of the Match
-- Venue performance
-- Batting and bowling statistics
+![Power Query](https://img.shields.io/badge/Power%20Query-742774?style=for-the-badge\&logo=microsoftpowerbi\&logoColor=white)
+
+![DAX](https://img.shields.io/badge/DAX-Data%20Analysis%20Expressions-F2C811?style=for-the-badge)
 
 ---
 
-### 👤 4. Players Data
-
-The `players-data-updated` dataset contains player information.
-
-Key fields include:
-
-- `player_id`
-- `player_full_name`
-- `player_name`
-- `bat_style`
-- `bowl_style`
-- `player_image`
-
-This dataset is used to provide player-level information and support player performance analysis.
-
----
-
-### 🏏 5. Teams Data
-
-The `teams_data` dataset contains IPL team information.
-
-Key fields include:
-
-- `team_id`
-- `team_name`
-- `image_url`
-- `team_count`
-
-This dataset is used for team identification, team analysis, and displaying team information in the dashboard.
-
----
-
-### 📌 Data Model
-
-The datasets are integrated in Power BI to create relationships between:
+## 📂 Project Structure
 
 ```text
-Ball-by-Ball Data
-        │
-        │ match_id
-        ▼
-   IPL Matches
-        │
-        ├── season
-        ├── team
-        ├── player
-        └── match information
-             │
-       ┌─────┴─────┐
-       ▼           ▼
-    Players      Teams
+IPL-Analysis-2008---2025-/
+│
+├── 📊 Power BI Dashboard
+│
+├── 📓 Jupyter Notebook
+│
+├── 📁 Dataset
+│
+├── 🖼️ Dashboard Screenshots
+│
+└── 📄 README.md
 ```
-> **Note:** The datasets are used for educational, analytical, and portfolio purposes.
 
 ---
 
-# ✨ Features & Highlights
+# 📈 Analysis Performed
 
-## 🏆 Overall IPL Analysis
+## 🏆 1. Team Performance Analysis
 
-- Total Matches
-- Total Seasons
-- Total Teams
-- Total Runs
-- Total Wickets
-- Average Runs per Innings
-- Season-wise Performance
+The project analyzes team performance across different IPL seasons.
 
----
+Key analysis includes:
 
-## 📅 Season-wise Analysis
-
-Users can select individual IPL seasons to analyze:
-
-- Matches Played
-- Team Performance
-- Top Run Scorers
-- Top Wicket Takers
-- Total Runs
-- Total Wickets
-- Winning Teams
+* Total matches played
+* Matches won
+* Matches lost
+* Win percentage
+* Season-wise performance
+* Team comparisons
+* Championship performance
 
 ---
 
-## 📊 Match Analysis
+## 🏏 2. Batting Analysis
 
-- Match Results
-- Winning Margins
-- Runs-based Wins
-- Wickets-based Wins
-- Tie Matches
-- No Result Matches
-- Venue-wise Performance
+The batting analysis identifies and compares top-performing batsmen across IPL seasons.
 
----
+Metrics include:
 
-## 🎛️ Interactive Features
-
-- Dynamic Season Slicers
-- Team Filters
-- Player Filters
-- Venue Filters
-- Interactive KPI Cards
-- Cross Filtering
-- Drill-down Analysis
-- Dynamic Charts
-- Season-wise Comparisons
+* Total runs
+* Number of matches
+* Batting performance
+* Boundaries
+* Sixes
+* Fours
+* Strike-rate related analysis
+* Season-wise batting trends
 
 ---
 
-# 📸 Dashboard Preview
+## 🎯 3. Bowling Analysis
 
-## Dashboard Overview
+The project also analyzes bowling performance using metrics such as:
 
-<p align="center">
-  <img src="IPL Dashboard- I.png" alt="IPL Analysis Dashboard - Page 1" width="100%">
-</p>
-
-<p align="center">
-  <img src="IPL Dashboard- II.png" alt="IPL Analysis Dashboard - Page 2" width="100%">
-</p>
-
----
----
+* Total wickets
+* Bowling performance
+* Top wicket-takers
+* Season-wise wicket trends
+* Bowling consistency
+* Player comparisons
 
 ---
 
-# 📊 Key Insights
+## 🟠 4. Orange Cap Analysis
 
-The dashboard can be used to identify several important IPL trends, including:
+The analysis identifies the leading run-scorers across IPL seasons.
 
-- Comparison of team performance across IPL seasons.
-- Identification of consistently successful teams.
-- Analysis of top-performing batsmen and bowlers.
-- Relationship between toss decisions and match outcomes.
-- Trends in batting and bowling performance.
-- Comparison of teams based on win percentage.
-- Analysis of match-winning margins.
-- Identification of high-scoring seasons and matches.
-- Season-wise analysis of player performances.
+The dashboard can be used to explore:
+
+* Season-wise Orange Cap winners
+* Total runs
+* Player performance
+* Team representation
+* Historical batting trends
 
 ---
 
-# 📁 Project Structure
+## 🟣 5. Purple Cap Analysis
+
+The project analyzes the leading wicket-takers across IPL seasons.
+
+Key metrics include:
+
+* Total wickets
+* Season-wise wicket leaders
+* Player performance
+* Team representation
+* Bowling trends
+
+---
+
+## 🪙 6. Toss Analysis
+
+Toss-related match data is analyzed to understand:
+
+* Toss winners
+* Toss decisions
+* Batting first vs chasing
+* Match outcomes
+* Winning patterns after winning the toss
+
+---
+
+## 🏟️ 7. Venue Analysis
+
+The project explores IPL performance across different venues.
+
+Analysis includes:
+
+* Matches played at each venue
+* Team performance by venue
+* Winning patterns
+* Venue-wise match distribution
+* Batting/chasing trends
+
+---
+
+## 📅 8. Season-Wise Analysis
+
+The dashboard provides an interactive way to explore individual IPL seasons from **2008 to 2025**.
+
+Users can analyze:
+
+* Number of matches
+* Teams
+* Winners
+* Player performances
+* Runs
+* Wickets
+* Match outcomes
+* Season trends
+
+---
+
+# 📊 Power BI Dashboard
+
+The Power BI dashboard converts the processed IPL data into an interactive analytical interface.
+
+### Dashboard Capabilities
+
+* 🔄 Season slicers
+* 📌 KPI cards
+* 📊 Interactive charts
+* 🏆 Team performance analysis
+* 🏏 Player leaderboards
+* 🟠 Orange Cap analysis
+* 🟣 Purple Cap analysis
+* 🪙 Toss analysis
+* 🏟️ Venue analysis
+* 📅 Season-wise filtering
+
+Users can select a particular season and dynamically explore the corresponding IPL statistics.
+
+---
+
+# 🧹 Data Processing
+
+The data analysis workflow follows these steps:
 
 ```text
-📦 IPL-Analysis-2008-2025
-│
-├── 📄 README.md
-│
-├── 📂 Raw dataset
-│   ├── IPL_Matches.csv
-│   └── ball_by_ball_data.csv
-│   └── ipl_centuries.csv
-│   └── players-data-updated.csv
-│   └── teams_data.csv
-│
-├── 📂 Cleaned dataset
-│   ├── IPL_Matches.csv
-│   └── ball_by_ball_data.csv
-│   └── ipl_centuries.csv
-│   └── players-data-updated.csv
-│   └── teams_data.csv
-│
-├── 📂 images
-│   ├── ipl_dashboard.png
-│   ├── team_analysis.png
-│   ├── player_analysis.png
-│   └── toss_analysis.png
-│
-├── 📄 Data_Preprocesssing.ipynb
-├── 📄 Data_Visualization.ipynb
-├── 📄 IPL_Dashboard.pbix
-
+Raw IPL Data
+      ↓
+Data Loading
+      ↓
+Data Cleaning
+      ↓
+Missing Value Handling
+      ↓
+Data Transformation
+      ↓
+Exploratory Data Analysis
+      ↓
+Feature Creation
+      ↓
+Power BI Data Model
+      ↓
+DAX Measures
+      ↓
+Interactive Dashboard
+      ↓
+Business & Sports Insights
 ```
+
+---
+
+# 🧠 Skills Demonstrated
+
+This project demonstrates practical experience in:
+
+### Data Analytics
+
+* Data Cleaning
+* Data Preprocessing
+* Exploratory Data Analysis
+* Statistical Analysis
+* Trend Analysis
+* Data Interpretation
+
+### Python
+
+* Pandas
+* NumPy
+* Data Manipulation
+* Data Aggregation
+* Data Visualization
+
+### Power BI
+
+* Dashboard Development
+* Data Modeling
+* Interactive Visualizations
+* Slicers & Filters
+* KPI Development
+* DAX Measures
+* Data Storytelling
+
+### Analytical Thinking
+
+* Performance comparison
+* Pattern identification
+* Trend analysis
+* KPI analysis
+* Insight generation
+
+---
+
+# 💡 Key Insights
+
+The project can be used to investigate questions such as:
+
+* Which teams have performed consistently across IPL seasons?
+* Who are the highest run-scorers?
+* Who are the leading wicket-takers?
+* How has team performance changed over time?
+* Does winning the toss correlate with match outcomes?
+* Which venues have hosted the most matches?
+* Which players dominate batting and bowling statistics?
+* How have scoring patterns evolved across IPL seasons?
 
 ---
 
 # 🚀 How to Use
 
-### 1. Clone the Repository
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Adiitya09/ipl-analysis-2008-2025.git
+git clone https://github.com/Adiitya09/IPL-Analysis-2008---2025-.git
 ```
 
-### 2. Open the Power BI File
+### 2. Navigate to the project
 
-Open:
-
-```text
-IPL Analysis.pbix
+```bash
+cd IPL-Analysis-2008---2025-
 ```
 
-using **Power BI Desktop**.
+### 3. Explore the Jupyter Notebook
 
-### 3. Load the Dataset
+Open the notebook using Jupyter:
 
-If required, update the dataset source paths in Power Query.
-
-### 4. Refresh the Dashboard
-
-Click:
-
-```text
-Home → Refresh
+```bash
+jupyter notebook
 ```
 
-to load the latest available data.
+or open it directly using **Jupyter Notebook / JupyterLab / VS Code**.
 
-### 5. Explore the Dashboard
+### 4. Open the Power BI Dashboard
 
-Use the available slicers and filters to analyze:
-
-- Seasons
-- Teams
-- Players
-- Venues
-- Toss decisions
-- Match results
+Open the `.pbix` file using **Microsoft Power BI Desktop**.
 
 ---
 
-# 🚀 Skills Demonstrated
+# 📌 Requirements
 
-- Data Cleaning
-- Data Transformation
-- Data Modeling
-- Power Query
-- DAX
-- KPI Development
-- Data Visualization
-- Interactive Dashboard Design
-- Sports Analytics
-- Exploratory Data Analysis
-- Business Intelligence
-- Analytical Storytelling
+To reproduce the analysis, you may need:
 
----
+* Python 3.x
+* Jupyter Notebook
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+* Microsoft Power BI Desktop
 
-# 📈 DAX & Analytical Techniques
+Install Python dependencies using:
 
-The project demonstrates the use of DAX for creating dynamic analytical measures such as:
-
-- Total Matches
-- Total Runs
-- Total Wickets
-- Average Runs
-- Win Percentage
-- Batting Statistics
-- Bowling Statistics
-- Toss Decision Analysis
-- Season-wise Metrics
-- Player Rankings
-
-The measures dynamically respond to selected seasons, teams, and other filters.
+```bash
+pip install pandas numpy matplotlib seaborn jupyter
+```
 
 ---
 
-# ⭐ Business Value
+# 📚 Learning Outcomes
 
-Although IPL is a sports dataset, the project demonstrates important **Business Intelligence and Data Analytics concepts**.
+Through this project, I gained practical experience in:
 
-The dashboard shows how large datasets can be transformed into interactive reports that help users:
-
-- Monitor performance.
-- Compare entities.
-- Identify trends.
-- Analyze historical patterns.
-- Discover relationships between different variables.
-- Make data-driven decisions.
-
-These analytical techniques can also be applied to real-world business domains such as sales, marketing, finance, HR, and operations.
+* Working with real-world datasets
+* Cleaning and transforming data
+* Performing exploratory data analysis
+* Building analytical dashboards
+* Creating meaningful KPIs
+* Using DAX for analytical calculations
+* Data visualization
+* Data storytelling
+* Converting raw data into actionable insights
 
 ---
 
 # 🔮 Future Improvements
 
-Potential improvements include:
+Potential future improvements include:
 
-- 🤖 IPL Match Outcome Prediction
-- 📈 Player Performance Prediction
-- 🏆 Team Win Probability
-- 🔮 Season Performance Forecasting
-- 🗺️ Venue-based Performance Mapping
-- 📊 Advanced Player Ranking System
-- 🧠 Machine Learning-based Match Prediction
-- 📱 Mobile-optimized Dashboard
-- ⚡ Real-time IPL Data Integration
-
----
-
-
+* [ ] Add IPL 2026 data
+* [ ] Add advanced player performance metrics
+* [ ] Add predictive analytics
+* [ ] Build player performance prediction models
+* [ ] Add team win-probability analysis
+* [ ] Create an automated data pipeline
+* [ ] Deploy the dashboard online
+* [ ] Add advanced Power BI drill-through pages
 
 ---
 
-# 📬 Connect With Me
+# 👨‍💻 Author
 
-### 👨‍💻 Author
+## Aditya Patil
 
-**Aditya Patil**
+**Aspiring Data Analyst | Python | SQL | Power BI | Excel | Machine Learning**
 
-- GitHub:   https://github.com/Adiitya09
-- LinkedIn: https://www.linkedin.com/in/2004-aditya-patil/
+🌐 Portfolio:
+https://aditya-portfolio-xi-six.vercel.app/
+
+💻 GitHub:
+https://github.com/Adiitya09
 
 ---
 
-## ⭐ If you found this project useful, don't forget to give it a Star!
+## ⭐ Support
+
+If you find this project useful, consider giving the repository a ⭐.
+
+Your feedback and suggestions are always welcome!
+
+---
+
+**Made with ❤️ using Python & Power BI**
+
+**© 2025 Aditya Patil**
